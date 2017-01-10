@@ -30,8 +30,8 @@ mvn clean install
 
 
 === Examples Recipes ===
-* link:simple-file-writer/README.adoc[Recipe-01] - Store file in HDFS
-* link:simple-file-reader/README.adoc[Recipe-02] - Read file from HDFS
+* link:simple-hdfs-writer/README.adoc[Recipe-01] - Store file in HDFS
+* link:simple-hdfs-reader/README.adoc[Recipe-02] - Read file from HDFS
 
 
 === Feedback: ===
