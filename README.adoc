@@ -1,0 +1,45 @@
+== Apache Hadoop Recipes ==
+
+This project provides sample recipes for usage of Apache Hadoop.
+
+=== Requirements: ===
+* Apache Maven version 3
+* Apache Hadoop 2.7.3
+* JDK 8
+
+=== Quickstart: ===
+
+==== Installation: ====
+
+Clone the repository using command
+[source]
+----
+git clone git://github.com/aparnachaudhary/apache-hadoop-recipes.git
+----
+
+==== Building: ====
+image::https://travis-ci.org/aparnachaudhary/apache-hadoop-recipes.png?branch=master["Build Status", link="https://travis-ci.org/aparnachaudhary/apache-hadoop-recipes"]
+
+To build, issue this from the command line:
+[source]
+----
+mvn clean install
+----
+
+==== Setup Hadoop ====
+
+
+=== Examples Recipes ===
+* link:simple-file-writer/README.adoc[Recipe-01] - Store file in HDFS
+* link:simple-file-reader/README.adoc[Recipe-02] - Read file from HDFS
+
+
+=== Feedback: ===
+
+Please feel free to raise bug reports or feature requests here https://github
+.com/aparnachaudhary/apache-hadoop-recipes/issues?state=open[Issues].
+
+=== Licensing and Copyright: ===
+
+The project is licensed under the http://www.apache.org/licenses/LICENSE-2.0[Apache License, Version 2.0]
+
