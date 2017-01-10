@@ -11,9 +11,10 @@
     <url>https://github.com/aparnachaudhary/apache-hadoop-recipes/</url>
 
     <modules>
-        <module>simple-file-writer</module>
+        <module>simple-hdfs-writer</module>
+        <module>simple-hdfs-reader</module>
     </modules>
-    
+
     <licenses>
         <license>
             <name>Apache License, Version 2.0</name>
