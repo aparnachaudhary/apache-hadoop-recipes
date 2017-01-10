@@ -1,0 +1,10 @@
+== HDFS Writer ==
+
+Demonstrates use of Java API to write file to HDFS
+
+=== Execute the sample ===
+
+[source,bash]
+----
+mvn exec:java
+----

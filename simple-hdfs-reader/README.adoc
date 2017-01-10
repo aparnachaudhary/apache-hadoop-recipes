@@ -1,0 +1,10 @@
+== HDFS Reader ==
+
+Demonstrates use of Java API to read file from HDFS
+
+=== Execute the sample ===
+
+[source,bash]
+----
+mvn exec:java
+----

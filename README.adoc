@@ -36,8 +36,7 @@ mvn clean install
 
 === Feedback: ===
 
-Please feel free to raise bug reports or feature requests here https://github
-.com/aparnachaudhary/apache-hadoop-recipes/issues?state=open[Issues].
+Please feel free to raise bug reports or feature requests here https://github.com/aparnachaudhary/apache-hadoop-recipes/issues?state=open[Issues].
 
 === Licensing and Copyright: ===
 
