@@ -11,7 +11,9 @@ import org.apache.hadoop.hdfs.DistributedFileSystem;
 
 
 /**
- * @author achaudha
+ * Writes the input file to HDFS under directory demo1.
+ *
+ * @author aparna
  * @since 10.01.2017
  */
 public class SimpleHdfsReader {
@@ -26,7 +28,10 @@ public class SimpleHdfsReader {
         // Creates anonymous sub class of DistributedFileSystem to allow calling initialize as DFS will not be usable otherwise
         try (final DistributedFileSystem dFS = new DistributedFileSystem() {
             {
-                initialize(new URI("hdfs://localhost:9000/"), new Configuration());
+                final String hdfsHost = System.getProperty("hdfsHost", "localhost");
+                final String hdfsPort = System.getProperty("hdfsPort", "9000");
+                final String hdfsUrl = String.format("hdfs://%s:%s/", hdfsHost, hdfsPort);
+                initialize(new URI(hdfsUrl), new Configuration());
             }
         };
              // Gets input stream for input path using DFS instance

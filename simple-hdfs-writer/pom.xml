@@ -44,4 +44,58 @@
             </plugin>
         </plugins>
     </build>
+    <profiles>
+        <profile>
+            <id>containerize</id>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>com.spotify</groupId>
+                        <artifactId>docker-maven-plugin</artifactId>
+                        <version>${version.docker-maven-plugin}</version>
+                        <configuration>
+                            <baseImage>openjdk:8</baseImage>
+                            <runs>
+                                <run>chmod +x /docker-entrypoint.sh</run>
+                            </runs>
+                            <entryPoint>["/docker-entrypoint.sh", "${project.artifactId}"]</entryPoint>
+                            <imageName>${project.artifactId}</imageName>
+                            <!-- Uncomment the following line to use Dockerfile i.s.o. maven config -->
+                            <!--<dockerDirectory>${project.basedir}/src/main/docker</dockerDirectory>-->
+                            <imageTags>
+                                <imageTag>${project.version}</imageTag>
+                                <imageTag>latest</imageTag>
+                            </imageTags>
+                            <env>
+                                <HDFS_HOST>localhost</HDFS_HOST>
+                                <HDFS_PORT>9000</HDFS_PORT>
+                            </env>
+                            <resources>
+                                <resource>
+                                    <targetPath>/</targetPath>
+                                    <directory>${project.basedir}/src/main/docker</directory>
+                                    <exclude>Dockerfile</exclude>
+                                </resource>
+                                <resource>
+                                    <targetPath>/</targetPath>
+                                    <directory>${project.build.directory}</directory>
+                                    <include>${project.artifactId}.jar</include>
+                                </resource>
+                            </resources>
+                            <skipDockerBuild>false</skipDockerBuild>
+                        </configuration>
+                        <executions>
+                            <execution>
+                                <id>build-image</id>
+                                <phase>package</phase>
+                                <goals>
+                                    <goal>build</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+    </profiles>
 </project>
