@@ -13,6 +13,7 @@
     <modules>
         <module>simple-hdfs-writer</module>
         <module>simple-hdfs-reader</module>
+        <module>phoenix-jdbc-connector</module>
     </modules>
 
     <licenses>
@@ -28,6 +29,7 @@
         <version.java>1.8</version.java>
         <!-- HDFS lib version -->
         <version.hadoop>2.7.3</version.hadoop>
+        <version.phoenix>4.10.0-HBase-1.2</version.phoenix>
         <version.slf4j-api>1.7.7</version.slf4j-api>
         <!-- plugin versions -->
         <version.maven-compiler-plugin>3.3</version.maven-compiler-plugin>
@@ -258,6 +260,42 @@
                     <exclusion>
                         <groupId>com.jcraft</groupId>
                         <artifactId>jsch</artifactId>
+                    </exclusion>
+                </exclusions>
+            </dependency>
+            <dependency>
+                <artifactId>hadoop-auth</artifactId>
+                <groupId>org.apache.hadoop</groupId>
+                <version>${version.hadoop}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.phoenix</groupId>
+                <artifactId>phoenix-core</artifactId>
+                <version>${version.phoenix}</version>
+                <exclusions>
+                    <exclusion>
+                        <artifactId>hadoop-auth</artifactId>
+                        <groupId>org.apache.hadoop</groupId>
+                    </exclusion>
+                    <exclusion>
+                        <artifactId>hadoop-hdfs</artifactId>
+                        <groupId>org.apache.hadoop</groupId>
+                    </exclusion>
+                </exclusions>
+            </dependency>
+            <!-- https://mvnrepository.com/artifact/org.apache.phoenix/phoenix-queryserver-client -->
+            <dependency>
+                <groupId>org.apache.phoenix</groupId>
+                <artifactId>phoenix-queryserver-client</artifactId>
+                <version>${version.phoenix}</version>
+                <exclusions>
+                    <exclusion>
+                        <artifactId>hadoop-auth</artifactId>
+                        <groupId>org.apache.hadoop</groupId>
+                    </exclusion>
+                    <exclusion>
+                        <artifactId>hadoop-hdfs</artifactId>
+                        <groupId>org.apache.hadoop</groupId>
                     </exclusion>
                 </exclusions>
             </dependency>
